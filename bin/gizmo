@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function usage {
+  echo "Usage: $0 on|off 0|1|2|3|4|5|6|7|8|9"
+  exit
+}
+
+if [ $# -ne 2 ]; then
+  usage
+fi
+
+case $1 in
+  "on")
+    screen -S gizmos -X stuff "i$2"
+    ;;
+
+  "off")
+    screen -S gizmos -X stuff "o$2"
+    ;;
+
+  *)
+    usage
+esac
+
