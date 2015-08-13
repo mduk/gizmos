@@ -2,7 +2,7 @@
 
 A simple Arduino project to turn on and off those little USB powered gizmos like lights and fans.
 
-![photo](https://photos-5.dropbox.com/t/2/AAAr3aVHjCRUwyDreWIxMA9l4cd9uV3lgtSACf-HeTK1Pg/12/26407721/jpeg/32x32/1/_/1/2/2015-08-13%2014.21.24.jpg/EKGN8hMY-1IgASgB/giflaEimwe6rc4U-tLSZViopTA0fYjbdlddFJjYyaCM?size=640x480&size_mode=1)
+![photo](https://github.com/mduk/gizmos/raw/master/doc/gizmo.jpg)
 
 ## Arduino
 
