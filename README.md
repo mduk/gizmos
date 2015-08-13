@@ -7,7 +7,7 @@ A simple Arduino project to turn on and off those little USB powered gizmos like
 ## Arduino
 
 Simply upload the Arduino sketch onto your board of choice using the Arduino IDE.
-The address/pin assignments can be changed using the `pins` array. Each address is an array offset pointing at a pin. I've made pin 13 (built-in led) address 0 by default for testing.
+The address/pin assignments can be changed using the `pin` array. Each address is an array offset pointing at a pin. I've made pin 13 (built-in led) address 0 by default for testing.
 The default pin assignments are intended for the Arduino Pro Mini and are all the digital pins exposed on the side with the ground pin.
 
 ## Usage
