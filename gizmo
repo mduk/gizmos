@@ -18,6 +18,10 @@ case $1 in
     screen -S gizmos -X stuff "o$2"
     ;;
 
+  "toggle")
+	screen -S gizmos -X stuff "t$2"
+	;;
+
   *)
     usage
 esac

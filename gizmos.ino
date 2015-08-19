@@ -44,6 +44,16 @@ void loop()
         u( address, 0 );
         v( address );
         break;
+	
+      case 't': // Toggle address
+        if ( state[ address ] == 0 ) {
+          u( address, 1 );
+        }
+        else {
+          u( address, 0 );
+        }
+        v( address );
+        break;
       
       default:
         e( command, address );
