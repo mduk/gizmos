@@ -1,6 +1,7 @@
+#include <EEPROM.h>
+
 int pins = 9;
 int pin[] =   { 13, 9, 8, 7, 6, 5, 4, 3, 2 };
-int state[] = {  0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 void setup()
 {
@@ -9,8 +10,13 @@ void setup()
   // Configure outputs and write initial state
   for ( int i = 0; i < pins; i++ )
   {
+    int initialState = EEPROM.read( i );
+    if ( initialState != 0 && initialState != 1 ) {
+      EEPROM.write( i, 0 );
+      initialState = 0;
+    }
     pinMode( pin[i], OUTPUT );
-    digitalWrite( pin[i], state[i] );
+    digitalWrite( pin[i], initialState );
     v( i );
   }
 }
@@ -46,7 +52,7 @@ void loop()
         break;
 	
       case 't': // Toggle address
-        if ( state[ address ] == 0 ) {
+        if ( s( address ) == 0 ) {
           u( address, 1 );
         }
         else {
@@ -62,16 +68,20 @@ void loop()
   }
 }
 
+int s( int address ) {
+  return EEPROM.read( address );
+}
+
 void u( int address, int newState ) {
-  state[ address ] = newState;
-  digitalWrite( pin[ address ], state[ address ] );
+  EEPROM.write( address, newState );
+  digitalWrite( pin[ address ], newState );
 }
 
 void v( int address )
 {
   Serial.print( "v" );
   Serial.print( address );
-  Serial.println( state[ address ] );
+  Serial.println( s( address ) );
 }
 
 void e( byte command, byte address ) {
